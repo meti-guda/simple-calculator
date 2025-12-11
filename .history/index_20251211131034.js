@@ -5,6 +5,7 @@ class Calculator {
     this.operation = null;
     this.shouldResetDisplay = false;
 
+    // your display div has class="expression"
     this.displayElement = document.querySelector(".expression");
 
     this.setupEventListeners();
@@ -12,17 +13,20 @@ class Calculator {
   }
 
   setupEventListeners() {
+    // number buttons: have data-value with 0–9 but NO data-action
     document.querySelectorAll(".values button").forEach((btn) => {
       const action = btn.dataset.action;
       const value = btn.dataset.value;
 
       if (!action && value !== undefined) {
+        // treat as number or dot key
         if (value === ".") {
           btn.addEventListener("click", () => this.handleDecimal());
         } else {
           btn.addEventListener("click", () => this.handleNumber(value));
         }
       } else if (action) {
+        // action keys
         if (action === "equals") {
           btn.addEventListener("click", () => this.handleEquals());
         } else if (action === "clear") {
@@ -32,10 +36,14 @@ class Calculator {
         }
       }
 
+      // operator keys have data-value of + - * / %
       if (["+", "-", "*", "/", "%"].includes(value)) {
         btn.addEventListener("click", () => this.handleOperator(value));
       }
     });
+
+    // keyboard support
+    document.addEventListener("keydown", (e) => this.handleKeyboard(e));
   }
 
   handleNumber(num) {
@@ -155,7 +163,3 @@ class Calculator {
     this.displayElement.textContent = this.displayValue;
   }
 }
-
-document.addEventListener("DOMContentLoaded", () => {
-  new Calculator();
-});

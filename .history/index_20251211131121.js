@@ -36,6 +36,9 @@ class Calculator {
         btn.addEventListener("click", () => this.handleOperator(value));
       }
     });
+
+    // keyboard support
+    document.addEventListener("keydown", (e) => this.handleKeyboard(e));
   }
 
   handleNumber(num) {

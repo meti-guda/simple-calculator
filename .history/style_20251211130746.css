@@ -14,12 +14,12 @@ body {
 }
 
 .calculator {
-  max-width: 260px;
+  width: 360px; /* was 300px */
   padding: 28px 24px 24px;
   border-radius: 28px;
   background-color: #f9f9ff;
   box-shadow: 4px 4px 10px rgba(150, 121, 189, 0.25);
-  transform: scale(1.15);
+  transform: scale(1.15); /* zoom in 15% */
   transform-origin: center top;
 }
 
@@ -76,7 +76,7 @@ button:hover {
 
 .dot {
   justify-self: flex-start;
-  width: 55px;
+  width: 65px;
   font-weight: 700;
 }
 
@@ -92,13 +92,7 @@ button:hover {
   box-shadow: inset 2px 2px 5px rgba(160, 100, 150, 0.5);
 }
 
-/* ✔ FIX: make sure hover doesn't override equal button */
-.equal:hover {
-  background-color: #d87bb4;
-  color: #ffffff;
-}
-
-@media (min-width: 400px) {
+@media (max-width: 400px) {
   .calculator {
     width: 90%;
   }

@@ -1,11 +1,12 @@
 body {
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: #e7baf8;
   font-family: "Segoe UI", system-ui, sans-serif;
   box-sizing: border-box;
-  margin-top: 100px;
+  margin: 0;
   padding: 0;
 }
 
@@ -14,13 +15,12 @@ body {
 }
 
 .calculator {
-  max-width: 260px;
-  padding: 28px 24px 24px;
+  width: 260px;
+  padding: 24px 20px 20px;
   border-radius: 28px;
   background-color: #f9f9ff;
-  box-shadow: 4px 4px 10px rgba(150, 121, 189, 0.25);
-  transform: scale(1.15);
-  transform-origin: center top;
+  box-shadow: 10px 10px 25px rgba(150, 121, 189, 0.5),
+    -8px -8px 20px rgba(255, 255, 255, 0.95);
 }
 
 .display {
@@ -39,7 +39,7 @@ body {
 }
 
 .expression {
-  font-size: 42px;
+  font-size: 26px;
   color: #000;
   white-space: nowrap;
 }
@@ -54,52 +54,45 @@ body {
   border: none;
   outline: none;
   height: 44px;
-  border-radius: 150px;
+  border-radius: 999px;
   background-color: #f5f7ff;
-  box-shadow: 3px 3px 8px rgba(150, 121, 189, 0.4);
+  box-shadow: 4px 4px 12px rgba(157, 132, 188, 0.45),
+    -3px -3px 9px rgba(255, 255, 255, 1);
   color: #000;
-  font-size: 18px;
+  font-size: 14px;
   cursor: pointer;
   transition: transform 0.08s ease, box-shadow 0.08s ease, background 0.1s;
 }
 
-button:hover {
-  background-color: #c79dd3;
-  color: white;
-}
-
 .values button:active {
   transform: translateY(1px);
-  background-color: #c76eca;
-  box-shadow: inset 2px 2px 5px rgba(150, 121, 189, 0.4);
+  box-shadow: inset 3px 3px 8px rgba(157, 132, 188, 0.45),
+    inset -2px -2px 6px rgba(255, 255, 255, 1);
 }
-
+button:hover {
+  background-color: #a170af;
+  color: white;
+}
 .dot {
   justify-self: flex-start;
-  width: 55px;
-  font-weight: 700;
+  width: 44px;
 }
 
 .equal {
   grid-column: span 2;
-  background-color: #d87bb4;
-  color: #ffffff;
   font-weight: 600;
-  box-shadow: 3px 3px 8px rgba(160, 100, 150, 0.5);
+  box-shadow: 4px 4px 12px rgba(160, 100, 150, 0.6),
+    -3px -3px 9px rgba(255, 255, 255, 1);
 }
 
 .equal:active {
-  box-shadow: inset 2px 2px 5px rgba(160, 100, 150, 0.5);
+  box-shadow: inset 3px 3px 8px rgba(160, 100, 150, 0.6),
+    inset -2px -2px 6px rgba(255, 255, 255, 1);
 }
 
-/* ✔ FIX: make sure hover doesn't override equal button */
-.equal:hover {
-  background-color: #d87bb4;
-  color: #ffffff;
-}
-
-@media (min-width: 400px) {
+@media (max-width: 400px) {
   .calculator {
-    width: 90%;
+    width: 230px;
+    padding: 20px 16px 16px;
   }
 }

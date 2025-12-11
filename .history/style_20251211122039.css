@@ -1,0 +1,126 @@
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #e7baf8;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* note: class name matches HTML: <div class="container"> */
+.container {
+  padding: 16px;
+}
+
+.calculator {
+  width: 260px;
+  padding: 24px 20px 20px;
+  border-radius: 28px;
+  background: #f9f9ff;
+  box-shadow: 10px 10px 25px rgba(150, 121, 189, 0.5),
+    -8px -8px 20px rgba(255, 255, 255, 0.95);
+}
+
+/* Display */
+
+.display {
+  width: 100%;
+  height: 64px;
+  border-radius: 20px;
+  background: #eef6f6;
+  box-shadow: inset 4px 4px 10px rgba(161, 161, 190, 0.4),
+    inset -4px -4px 10px rgba(255, 255, 255, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 18px;
+  margin-bottom: 18px;
+  overflow: hidden;
+}
+
+.expression {
+  font-size: 26px;
+  color: #333;
+  white-space: nowrap;
+}
+
+/* Keys grid – matches <div class="values"> */
+
+.values {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 12px;
+}
+
+.values button {
+  border: none;
+  outline: none;
+  height: 44px;
+  border-radius: 999px;
+  background: #f5f7ff;
+  box-shadow: 4px 4px 12px rgba(157, 132, 188, 0.45),
+    -3px -3px 9px rgba(255, 255, 255, 1);
+  color: #555;
+  font-size: 14px;
+  cursor: pointer;
+  transition: transform 0.08s ease, box-shadow 0.08s ease, background 0.1s;
+}
+
+.values button:active {
+  transform: translateY(1px);
+  box-shadow: inset 3px 3px 8px rgba(157, 132, 188, 0.45),
+    inset -2px -2px 6px rgba(255, 255, 255, 1);
+}
+
+/* Operators and specials */
+
+.values button[data-value="/"],
+.values button[data-value="*"],
+.values button[data-value="-"],
+.values button[data-value="+"],
+.values button[data-value="%"] {
+  color: #7c7ea8;
+  font-weight: 600;
+}
+
+.values button[data-action="clear"],
+.values button[data-action="del"] {
+  font-size: 13px;
+  color: #a07090;
+}
+
+/* Dot button on left */
+
+.dot {
+  justify-self: flex-start;
+  width: 44px;
+}
+
+/* Equal button spanning two columns */
+
+.equal {
+  grid-column: span 2;
+  background-color: #b1759a;
+  color: #fff;
+  font-weight: 600;
+  box-shadow: 4px 4px 12px rgba(160, 100, 150, 0.6),
+    -3px -3px 9px rgba(255, 255, 255, 1);
+}
+
+.equal:active {
+  box-shadow: inset 3px 3px 8px rgba(160, 100, 150, 0.6),
+    inset -2px -2px 6px rgba(255, 255, 255, 1);
+}
+
+/* Smaller on narrow screens */
+
+@media (max-width: 400px) {
+  .calculator {
+    width: 230px;
+    padding: 20px 16px 16px;
+  }
+}
